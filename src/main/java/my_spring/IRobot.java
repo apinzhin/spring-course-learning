@@ -5,8 +5,8 @@ package my_spring;
  */
 public class IRobot {
 
-    private Cleaner cleaner = new Cleaner();
-    private Speaker speaker  = new Speaker();
+    private Cleaner cleaner = new CleanerImpl();
+    private Speaker speaker  = new SpeakerImpl();
 
     public void clean() {
         speaker.speak("Начал работать");
