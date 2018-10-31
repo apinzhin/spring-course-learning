@@ -9,6 +9,7 @@ public class CleanerImpl implements Cleaner {
     private int repeat;
 
     @Override
+    @Benchmark
     public void clean() {
         for (int i=0; i<repeat; i++) {
             System.out.println("UUUUUUUUUUUUUUUUUUUUU!!!");
