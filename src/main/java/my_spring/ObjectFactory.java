@@ -3,6 +3,8 @@ package my_spring;
 import lombok.SneakyThrows;
 import org.reflections.Reflections;
 
+import javax.annotation.PostConstruct;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -37,10 +39,11 @@ public class ObjectFactory {
         if (type.isInterface()) {
             type = config.getImplClass(type);
         }
-
         T object = type.newInstance();
 
         configure(object);
+
+        postConstruct(object);
 
         return object;
     }
@@ -49,6 +52,16 @@ public class ObjectFactory {
     private <T> void configure(T object) {
         objectConfigurators.forEach(e -> e.configure(object));
     }
+
+    @SneakyThrows
+    private <T> void postConstruct(T object) {
+        for (Method method : object.getClass().getMethods()) {
+            if (method.isAnnotationPresent(PostConstruct.class)) {
+                method.invoke(object);
+            }
+        }
+    }
+
 
 
 }
