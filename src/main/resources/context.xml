@@ -3,16 +3,28 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="diskDevice" class="media_player.DiskDevice">
-        <property name="title" value="Queen"/>
-        <property name="songs">
+    <bean id="queenDisk" class="media_player.Disk">
+        <constructor-arg name="title" value="Queen"/>
+        <constructor-arg name="songs">
             <list>
                 <value>We will rock you!</value>
                 <value>I want to break free</value>
             </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="diskDevice" class="media_player.DiskDevice">
+        <property name="disk" ref="queenDisk"/>
+    </bean>
+
+    <bean id="flashDevice" class="media_player.FlashDevice">
+        <property name="mediaFiles">
+            <list>
+                <value>StarWars1.avi</value>
+                <value>Terminator.mov</value>
+            </list>
         </property>
     </bean>
 
-    <bean id="flashDevice" class="media_player.FlashDevice"/>
 
 </beans>

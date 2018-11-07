@@ -1,10 +1,18 @@
 package media_player;
 
+import lombok.Setter;
+
+import java.util.List;
+
+@Setter
 public class FlashDevice implements MediaDevice {
+
+    private List<String> mediaFiles;
 
     @Override
     public void play() {
-        System.out.println("Playing from Flash  ...");
+        System.out.println("----------- Playing from Flash  ...");
+        mediaFiles.forEach(System.out::println);
     }
 
 
