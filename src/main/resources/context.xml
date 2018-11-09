@@ -13,7 +13,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="diskDevice" class="media_player.DiskDevice">
+    <bean id="diskDevice" class="media_player.DiskDevice" init-method="init">
         <property name="disk" ref="queenDisk"/>
     </bean>
 
