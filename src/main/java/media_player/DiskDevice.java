@@ -1,8 +1,12 @@
 package media_player;
 
+import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
+@Getter
 public class DiskDevice implements MediaDevice {
 
     private Disk disk;
@@ -10,18 +14,26 @@ public class DiskDevice implements MediaDevice {
     public void init() {
 //        System.out.println("Initializing DiskDevice ... " +
 //                (disk != null ? "disk found: " + disk.getTitle() : "no disk found"));
+//
+//        songsOrdered = disk.getSongs();  // doesn't work!!!
+
     }
 
-//    public void init() {
-//        System.out.println("Initializing Disk device... " +
-//                (disk != null ? "Disk found: " + disk.getTitle() : "No disk found"));
-//    };
+
+
+    public void setDisk(Disk disk) {
+        this.disk = disk;
+        songsOrdered = disk.getSongs();
+    }
+
+    @Shuffle
+    public List<String> songsOrdered;
 
     public void play() {
         System.out.println("--------------- Playing CD ...");
         System.out.println("Title: " + disk.getTitle());
-        disk.getSongs().forEach(System.out::println);
 
+        songsOrdered.forEach(System.out::println);
     }
 
 }

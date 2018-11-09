@@ -14,5 +14,7 @@ public class Disk {
     private String title;
     private List<String> songs;
 
-
+    public List<String> getSongs() {
+        return songs;
+    }
 }
