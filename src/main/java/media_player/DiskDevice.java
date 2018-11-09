@@ -8,8 +8,8 @@ public class DiskDevice implements MediaDevice {
     private Disk disk;
 
     public void init() {
-        System.out.println("Initializing DiskDevice ... " +
-                (disk != null ? "disk found: " + disk.getTitle() : "no disk found"));
+//        System.out.println("Initializing DiskDevice ... " +
+//                (disk != null ? "disk found: " + disk.getTitle() : "no disk found"));
     }
 
 //    public void init() {
