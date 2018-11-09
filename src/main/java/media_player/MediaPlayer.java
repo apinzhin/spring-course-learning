@@ -2,6 +2,7 @@ package media_player;
 
 import lombok.Setter;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 public class MediaPlayer {
@@ -10,15 +11,16 @@ public class MediaPlayer {
     private List<MediaDevice> mediaDevices;
 
     public MediaPlayer() {
-        System.out.println("Initializing MEDIA PLAYER, media devices found");
-        mediaDevices.forEach(e-> System.out.println(e.getClass().getName()));
-        mediaDevices.forEach(MediaDevice::play);
+
     }
 
 
 
+    @PostConstruct
     public void init() {
-
+        System.out.println("Initializing MEDIA PLAYER, media devices found");
+        mediaDevices.forEach(e-> System.out.println(e.getClass().getName()));
+        mediaDevices.forEach(MediaDevice::play);
     }
 
 
