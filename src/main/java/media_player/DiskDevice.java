@@ -12,6 +12,11 @@ public class DiskDevice implements MediaDevice {
                 (disk != null ? "disk found: " + disk.getTitle() : "no disk found"));
     }
 
+//    public void init() {
+//        System.out.println("Initializing Disk device... " +
+//                (disk != null ? "Disk found: " + disk.getTitle() : "No disk found"));
+//    };
+
     public void play() {
         System.out.println("--------------- Playing CD ...");
         System.out.println("Title: " + disk.getTitle());
