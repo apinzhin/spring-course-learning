@@ -16,7 +16,7 @@
     <bean class="media_player.DestroyAndPrototypeBeanFactoryPostProcessor"/>
     <bean class="media_player.deprecated.DeprecatedClassBeanFactoryPostProcessor"/>
 
-    <bean id="queenDisk" class="media_player.Disk">
+    <bean id="queenDisk" class="media_player.DiskFactory">
         <constructor-arg name="title" value="${title}"/>
         <constructor-arg name="songs">
             <list>
