@@ -26,7 +26,6 @@ public class MediaPlayer {
     public void play() {
         mediaDevices.forEach(mediaDevice -> {
             mediaDevice.play();
-            mediaDevice.sayGoodBye();
         });
     }
 }

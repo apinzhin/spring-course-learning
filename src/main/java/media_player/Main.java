@@ -12,6 +12,8 @@ public class Main {
         System.out.println("--------------- Get bean by Class ");
         MediaPlayer mediaPlayer = context.getBean(MediaPlayer.class);
         mediaPlayer.play();
+
+        context.registerShutdownHook();
     }
 
 

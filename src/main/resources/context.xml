@@ -7,6 +7,7 @@
     <bean class="media_player.ShuffleAnnotationBeanPostProcessor"/>
     <bean class="media_player.BenchmarkAnnotationBeanPostProcessor"/>
     <bean class="media_player.TransactionalAnnotationBeanPostProcessor"/>
+    <bean class="media_player.DestroyAndPrototypeBeanFactoryPostProcessor"/>
 
     <bean id="queenDisk" class="media_player.Disk">
         <constructor-arg name="title" value="Queen"/>
@@ -19,7 +20,8 @@
         </constructor-arg>
     </bean>
 
-    <bean id="diskDevice" class="media_player.DiskDevice" init-method="init">
+    <bean id="diskDevice" class="media_player.DiskDevice" init-method="init"
+          destroy-method="sayGoodBye" scope="prototype">
         <property name="disk" ref="queenDisk"/>
     </bean>
 
