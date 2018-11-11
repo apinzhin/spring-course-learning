@@ -20,9 +20,13 @@ public class MediaPlayer {
     public void init() {
         System.out.println("Initializing MEDIA PLAYER, media devices found");
         mediaDevices.forEach(e-> System.out.println(e.getClass().getName()));
-        mediaDevices.forEach(MediaDevice::play);
     }
 
 
-
+    public void play() {
+        mediaDevices.forEach(mediaDevice -> {
+            mediaDevice.play();
+            mediaDevice.sayGoodBye();
+        });
+    }
 }

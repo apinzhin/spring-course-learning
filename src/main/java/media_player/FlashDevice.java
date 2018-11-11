@@ -15,5 +15,10 @@ public class FlashDevice implements MediaDevice {
         mediaFiles.forEach(System.out::println);
     }
 
+    @Override
+    public void sayGoodBye() {
+        System.out.println("Good Bye from Flash drive...");
+    }
+
 
 }

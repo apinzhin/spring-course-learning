@@ -29,11 +29,16 @@ public class DiskDevice implements MediaDevice {
     @Shuffle
     public List<String> songsOrdered;
 
+    @Benchmark
     public void play() {
         System.out.println("--------------- Playing CD ...");
         System.out.println("Title: " + disk.getTitle());
 
         songsOrdered.forEach(System.out::println);
+    }
+
+    public void sayGoodBye() {
+        System.out.println("Good Bye from CD ...");
     }
 
 }
