@@ -6,6 +6,7 @@
     <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
     <bean class="media_player.ShuffleAnnotationBeanPostProcessor"/>
     <bean class="media_player.BenchmarkAnnotationBeanPostProcessor"/>
+    <bean class="media_player.TransactionalAnnotationBeanPostProcessor"/>
 
     <bean id="queenDisk" class="media_player.Disk">
         <constructor-arg name="title" value="Queen"/>

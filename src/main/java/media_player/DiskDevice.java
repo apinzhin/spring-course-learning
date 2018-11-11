@@ -29,7 +29,8 @@ public class DiskDevice implements MediaDevice {
     @Shuffle
     public List<String> songsOrdered;
 
-    @Benchmark
+    //@Benchmark
+    @Transactional
     public void play() {
         System.out.println("--------------- Playing CD ...");
         System.out.println("Title: " + disk.getTitle());
