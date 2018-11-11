@@ -1,10 +1,13 @@
 package media_player;
 
 import lombok.Setter;
+import media_player.deprecated.DeprecatedClass;
+import media_player.deprecated.QuantumDevice;
 
 import java.util.List;
 
 @Setter
+@DeprecatedClass(newClass = QuantumDevice.class)
 public class FlashDevice implements MediaDevice {
 
     private List<String> mediaFiles;
