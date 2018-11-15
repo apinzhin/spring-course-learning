@@ -1,33 +1,24 @@
 package media_player;
 
-import org.springframework.beans.factory.FactoryBean;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-public class DiskFactory implements FactoryBean<Disk> {
+@Configuration
+public class DiskFactory {
 
-
+    @Value("${title}")
     private String title;
+
+    @Value("#{'${songs}'.split(',')}")
     private List<String> songs;
 
-    public DiskFactory(String title, List<String> songs) {
-        this.title = title;
-        this.songs = songs;
-    }
-
-    @Override
-    public Disk getObject() throws Exception {
+    @Bean(name = "queenDisk")
+    public Disk getDisk() {
         System.out.println("DiskFactory - producing disk ....");
         return new Disk(title, songs);
     }
 
-    @Override
-    public Class<?> getObjectType() {
-        return Disk.class;
-    }
-
-    @Override
-    public boolean isSingleton() {
-        return true;
-    }
 }

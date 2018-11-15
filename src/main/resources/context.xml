@@ -14,20 +14,5 @@
     <bean class="media_player.TransactionalAnnotationBeanPostProcessor"/>
     <!--<bean class="media_player.DestroyAndPrototypeBeanFactoryPostProcessor"/>-->
     <!--<bean class="media_player.deprecated.DeprecatedClassBeanFactoryPostProcessor"/>-->
-
-    <bean id="queenDisk" class="media_player.DiskFactory">
-        <constructor-arg name="title" value="${title}"/>
-        <constructor-arg name="songs">
-            <list>
-                <value>1. We will rock you!</value>
-                <value>2. I want to break free</value>
-                <value>3. We are the champions</value>
-            </list>
-        </constructor-arg>
-    </bean>
     
-
-
-
-
 </beans>
