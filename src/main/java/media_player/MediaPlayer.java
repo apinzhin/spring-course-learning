@@ -1,13 +1,16 @@
 package media_player;
 
-import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
 
+
+@Service
 public class MediaPlayer {
 
-    @Setter
+    @Autowired
     private List<MediaDevice> mediaDevices;
 
     public MediaPlayer() {

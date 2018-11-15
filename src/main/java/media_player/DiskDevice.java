@@ -2,15 +2,22 @@ package media_player;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 @Setter
 @Getter
+@Component
 public class DiskDevice implements MediaDevice {
+
 
     private Disk disk;
 
+    @PostConstruct
     public void init() {
 //        System.out.println("Initializing DiskDevice ... " +
 //                (disk != null ? "disk found: " + disk.getTitle() : "no disk found"));
@@ -20,7 +27,7 @@ public class DiskDevice implements MediaDevice {
     }
 
 
-
+    @Autowired
     public void setDisk(Disk disk) {
         this.disk = disk;
         songsOrdered = disk.getSongs();
@@ -38,6 +45,7 @@ public class DiskDevice implements MediaDevice {
         songsOrdered.forEach(System.out::println);
     }
 
+    @PreDestroy
     public void sayGoodBye() {
         System.out.println("Good Bye from CD ...");
     }
