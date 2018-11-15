@@ -1,13 +1,13 @@
 package media_player;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  *
  */
 public class Main {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MediaPlayerConfig.class);
 
         System.out.println("--------------- Get bean by Class ");
         MediaPlayer mediaPlayer = context.getBean(MediaPlayer.class);
