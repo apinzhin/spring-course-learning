@@ -1,6 +1,7 @@
 package media_player;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -11,6 +12,7 @@ import java.util.List;
 public class MediaPlayer {
 
     @Autowired
+    @Qualifier("diskDevice")
     private List<MediaDevice> mediaDevices;
 
     public MediaPlayer() {
