@@ -11,14 +11,19 @@ import java.util.List;
 
 import static media_player.DeviceType.*;
 import static media_player.DeviceType.Type.*;
+import static media_player.DiskType.Type.CD;
+import static media_player.DiskType.Type.DVD;
 
 @Component("dvdDrive")
 @DeviceType(DISK)
 public class DvdDevice implements MediaDevice {
 
+
     private Disk disk;
 
     @Autowired
+    @DiskType(DVD)
+//    @Qualifier("dvd_disk")
     public void setDisk(Disk disk) {
         this.disk = disk;
         songsOrdered = disk.getSongs();

@@ -12,13 +12,14 @@ import javax.annotation.PreDestroy;
 import java.util.List;
 
 import static media_player.DeviceType.Type.*;
+import static media_player.DiskType.Type.CD;
+import static media_player.DiskType.Type.DVD;
 
 @Setter
 @Getter
 @Component("cdDrive")
 @DeviceType(DISK)
 public class CdDevice implements MediaDevice {
-
 
     private Disk disk;
 
@@ -33,6 +34,8 @@ public class CdDevice implements MediaDevice {
 
 
     @Autowired
+    @DiskType(CD)
+//    @Qualifier("cd_disk")
     public void setDisk(Disk disk) {
         this.disk = disk;
         songsOrdered = disk.getSongs();
