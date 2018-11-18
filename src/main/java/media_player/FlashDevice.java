@@ -10,10 +10,13 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PreDestroy;
 import java.util.List;
 
+import static media_player.DeviceType.Type.FLASH;
+
 @Setter
 @DeprecatedClass(newClass = QuantumDevice.class)
 
 @Component
+@DeviceType(FLASH)
 public class FlashDevice implements MediaDevice {
 
 //    @Value("#{'${mediaFiles}'.split(',')}")

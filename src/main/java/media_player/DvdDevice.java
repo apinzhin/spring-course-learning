@@ -1,7 +1,6 @@
 package media_player;
 
-import lombok.Getter;
-import lombok.Setter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -10,24 +9,14 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
 
-@Setter
-@Getter
-@Component("cdDrive")
-@Qualifier("diskDevice")
-public class DiskDevice implements MediaDevice {
+import static media_player.DeviceType.*;
+import static media_player.DeviceType.Type.*;
 
+@Component("dvdDrive")
+@DeviceType(DISK)
+public class DvdDevice implements MediaDevice {
 
     private Disk disk;
-
-    @PostConstruct
-    public void init() {
-//        System.out.println("Initializing DiskDevice ... " +
-//                (disk != null ? "disk found: " + disk.getTitle() : "no disk found"));
-//
-//        songsOrdered = disk.getSongs();  // doesn't work!!!
-
-    }
-
 
     @Autowired
     public void setDisk(Disk disk) {
@@ -38,10 +27,9 @@ public class DiskDevice implements MediaDevice {
     @Shuffle
     public List<String> songsOrdered;
 
-   // @Benchmark
-    //@Transactional
+
     public void play() {
-        System.out.println("--------------- Playing CD ...");
+        System.out.println("--------------- Playing DVD ...");
         System.out.println("Title: " + disk.getTitle());
 
         songsOrdered.forEach(System.out::println);
@@ -49,7 +37,6 @@ public class DiskDevice implements MediaDevice {
 
     @PreDestroy
     public void sayGoodBye() {
-        System.out.println("Good Bye from CD ...");
+        System.out.println("Good Bye from DVD ...");
     }
-
 }
