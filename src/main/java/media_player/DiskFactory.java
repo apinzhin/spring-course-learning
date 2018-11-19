@@ -1,6 +1,5 @@
 package media_player;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +19,7 @@ public class DiskFactory {
     private List<String> songs;
 
     @Bean
-    @Qualifier("cd_disk")
+    @DiskType(CD)
     public Disk getCdDisk() {
         System.out.println("DiskFactory - producing CD disk ....");
         return new Disk("CD: " +  title, songs);
