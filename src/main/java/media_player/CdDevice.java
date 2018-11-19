@@ -2,23 +2,22 @@ package media_player;
 
 import lombok.Getter;
 import lombok.Setter;
-import media_player.DeviceType.Type;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.List;
 
-import static media_player.DeviceType.Type.*;
+import static media_player.DeviceType.Type.DISK;
 import static media_player.DiskType.Type.CD;
-import static media_player.DiskType.Type.DVD;
 
 @Setter
 @Getter
 @Component("cdDrive")
 @DeviceType(DISK)
+@Scope("prototype")
 public class CdDevice implements MediaDevice {
 
     private Disk disk;
@@ -35,7 +34,6 @@ public class CdDevice implements MediaDevice {
 
     @Autowired
     @DiskType(CD)
-//    @Qualifier("cd_disk")
     public void setDisk(Disk disk) {
         this.disk = disk;
         songsOrdered = disk.getSongs();

@@ -13,6 +13,9 @@ public class Main {
         MediaPlayer mediaPlayer = context.getBean(MediaPlayer.class);
         mediaPlayer.play();
 
+        MediaPlayer mediaPlayer2 = context.getBean(MediaPlayer.class);
+        mediaPlayer2.play();
+
         context.registerShutdownHook();
     }
 
