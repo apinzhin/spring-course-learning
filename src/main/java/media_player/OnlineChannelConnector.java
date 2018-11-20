@@ -1,6 +1,7 @@
 package media_player;
 
 import lombok.SneakyThrows;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
