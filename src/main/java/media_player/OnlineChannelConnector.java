@@ -1,12 +1,14 @@
 package media_player;
 
 import lombok.SneakyThrows;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 
 @Component
+@Lazy
 public class OnlineChannelConnector {
     
     @PostConstruct

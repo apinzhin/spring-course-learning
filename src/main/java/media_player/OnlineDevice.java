@@ -1,6 +1,7 @@
 package media_player;
 
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Component
 @DependsOn("onlineChannelConnector")
+@Lazy
 public class OnlineDevice implements MediaDevice {
 
     private List<String> channels;

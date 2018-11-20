@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.List;
 
+import static media_player.DeviceType.Type.DISK;
+
 
 @Service
 public class MediaPlayer {
