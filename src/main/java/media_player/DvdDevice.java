@@ -2,6 +2,7 @@ package media_player;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
@@ -12,6 +13,7 @@ import static media_player.DiskType.Type.DVD;
 
 @Component("dvdDrive")
 @DeviceType(DISK)
+@Scope("prototype")
 public class DvdDevice implements MediaDevice {
 
 
@@ -19,6 +21,7 @@ public class DvdDevice implements MediaDevice {
 
     @Autowired
     @DiskType(DVD)
+//    @Qualifier("dvd_disk")
     public void setDisk(Disk disk) {
         this.disk = disk;
         songsOrdered = disk.getSongs();
