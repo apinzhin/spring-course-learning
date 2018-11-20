@@ -2,9 +2,13 @@ package media_player.deprecated;
 
 import lombok.Setter;
 import media_player.MediaDevice;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Profile("research")
+@Component
 public class QuantumDevice implements MediaDevice {
 
 
