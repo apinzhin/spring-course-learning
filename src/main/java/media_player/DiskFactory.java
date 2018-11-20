@@ -24,7 +24,9 @@ public class DiskFactory {
 
     @Bean
     @DiskType(CD)
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Scope(value = "prototype"
+    //        , proxyMode = ScopedProxyMode.TARGET_CLASS
+    )
     public Disk getCdDisk() {
         counter++;
         System.out.println("DiskFactory - producing CD disk .... " + counter);
@@ -33,7 +35,9 @@ public class DiskFactory {
 
     @Bean
     @DiskType(DVD)
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+    @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE
+    //        ,proxyMode = ScopedProxyMode.TARGET_CLASS
+    )
     public Disk getDvdDisk() {
         counter++;
         System.out.println("DiskFactory - producing DVD disk .... " + counter);
