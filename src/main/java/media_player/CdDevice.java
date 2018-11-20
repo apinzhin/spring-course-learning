@@ -3,7 +3,6 @@ package media_player;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -17,7 +16,6 @@ import static media_player.DiskType.Type.CD;
 @Getter
 @Component("cdDrive")
 @DeviceType(DISK)
-@Scope("prototype")
 public class CdDevice implements MediaDevice {
 
     private Disk disk;

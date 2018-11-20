@@ -1,10 +1,8 @@
 package media_player;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 import java.util.List;
 
@@ -24,7 +22,6 @@ public class DiskFactory {
 
     @Bean
     @DiskType(CD)
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public Disk getCdDisk() {
         counter++;
         System.out.println("DiskFactory - producing CD disk .... " + counter);
@@ -33,7 +30,6 @@ public class DiskFactory {
 
     @Bean
     @DiskType(DVD)
-    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public Disk getDvdDisk() {
         counter++;
         System.out.println("DiskFactory - producing DVD disk .... " + counter);

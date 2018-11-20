@@ -12,9 +12,9 @@ public class Main {
         System.out.println("--------------- Get bean by Class ");
         MediaPlayer mediaPlayer = context.getBean(MediaPlayer.class);
         mediaPlayer.play();
-
-        MediaPlayer mediaPlayer2 = context.getBean(MediaPlayer.class);
-        mediaPlayer2.play();
+//
+//        MediaPlayer mediaPlayer2 = context.getBean(MediaPlayer.class);
+//        mediaPlayer2.play();
 
         context.registerShutdownHook();
     }
